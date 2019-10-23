@@ -1,0 +1,17 @@
+
+<div class="content">
+    <div class="header">
+        <span> svideo</span>
+        <input type="text" [(ngModel)]="searchKey" placeholder="Search" (keyup)="filterShows()"/>
+    </div>
+    <div class="shows">
+        <div class="card" *ngFor="let card of data" (click)="onCardSelect(card.title)">
+            <img class="card-img" src="{{getImageString(card.poster)}}"/>
+            <div class="card-content">
+                <p style="font-size: 16px;font-weight: bold;">{{card.title}}</p>
+                <p>{{card.year}}</p>
+                <p style="padding: 0px 5px 5px 0px;overflow:hidden">{{card.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+
+<div class="content">
+    <div class="header">
+        <span class="contentTitle"> svideo</span>
+         <span (click)="backToMainPage()" class="back"> Back </span>
+    </div>
+    <div class="showContent">
+        <div class="banner">
+            <span id="title">{{show.title}}</span>
+            <span class="desc">({{show.year}})</span>
+            <span class="desc">Rating <br> {{rating}}</span>
+            <img style="width: 10%;height: 10%;" src="{{getImage(show.poster)}}"/>
+            <span class="desc" style="width: 50%;text-align: center;font-weight: normal">{{show.description}}</span>
+        </div>
+        <div class="frame">
+            <iframe [src]="safeiFrameSrc" class="frame" frameborder="0" allowfullscreen=""></iframe> 
+        </div>
+    </div>
+</div>
