@@ -24,12 +24,13 @@ export class SelectedShowComponent implements OnInit {
     ngOnInit(){
         this.shows = this.svideoService.getData();
         this.route.paramMap.subscribe(params => {
-            let arr  = this.shows.filter((e) => {
+            let arr  = this.shows.find((e) => {
                 params.get('showId').replace("+"," ")
                 return e.title === params.get('showId');});
-            this.show = arr[0];
+            this.show = arr;
     });
-    this.getRating();
+    // this.getRating();
+    this.svideoService.getRatingv2(this.show.imdbID);
     this.iFrameSrc = 'https://www.youtube.com/embed/' + this.show.trailer;
     this.safeiFrameSrc = this.domSanitizer.bypassSecurityTrustResourceUrl(this.iFrameSrc)
     } 
@@ -38,12 +39,12 @@ export class SelectedShowComponent implements OnInit {
         return "../../../app/svideo/img/posters/" + this.show.poster;
     } 
     
-    getRating(){
-        this.svideoService.getRating(this.show.imdbID).subscribe(
-            (data:any) => {
-                this.rating = data.imdbRating;
-        });
-    }
+    // getRating(){
+    //     this.svideoService.getRating(this.show.imdbID).subscribe(
+    //         (data:any) => {
+    //             this.rating = data.imdbRating;
+    //     });
+    // }
 
     getTrailerLink(){
        let a = 'https://www.youtube-nocookie.com/embed/' + this.show.trailer;
