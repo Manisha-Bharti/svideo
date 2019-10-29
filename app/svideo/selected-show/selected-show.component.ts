@@ -22,6 +22,7 @@ export class SelectedShowComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.shows = this.svideoService.getData();
         this.route.paramMap.subscribe(params => {
             let arr  = this.shows.filter((e) => {
                 params.get('showId').replace("+"," ")
