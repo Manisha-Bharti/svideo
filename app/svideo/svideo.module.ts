@@ -4,6 +4,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SVideoComponent } from './svideo.component';
+import { SVideoService } from './svideo.service';
 
 @NgModule({
     imports: [
@@ -14,7 +15,7 @@ import { SVideoComponent } from './svideo.component';
     declarations: [
         SVideoComponent
     ],
-    providers: []
+    providers: [SVideoService]
 })
 
 export class SVideoModule { }
